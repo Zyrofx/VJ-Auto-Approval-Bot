@@ -46,6 +46,7 @@ async def op(_, m: Message):
                     [
                         InlineKeyboardButton("🛡️Add To Channel🛡️", url="http://t.me/auto_join_requests_accept_bot?startchannel=maeve_324&admin=invite_users+manage_chat"),
                         InlineKeyboardButton("🛡️Add To Group🛡️", url="https://t.me/auto_join_requests_accept_bot?startgroup=maeve_324&admin=invite_users+manage_chat")
+                    ]   
                 ]
             )
             add_user(m.from_user.id)
@@ -83,6 +84,7 @@ async def chk(_, cb: CallbackQuery):
                     [
                         InlineKeyboardButton("🛡️Add To Channel🛡️", url="http://t.me/auto_join_requests_accept_bot?startchannel=maeve_324&admin=invite_users+manage_chat"),
                         InlineKeyboardButton("🛡️Add To Group🛡️", url="https://t.me/auto_join_requests_accept_bot?startgroup=maeve_324&admin=invite_users+manage_chat")
+                    ]    
                 ]
             )
             add_user(cb.from_user.id)
