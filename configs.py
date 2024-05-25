@@ -2,8 +2,7 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-
-from os import path, getenv
+from os import getenv
 
 class Config:
     API_ID = int(getenv("API_ID", "20389440"))
@@ -13,7 +12,8 @@ class Config:
     CHID = int(getenv("CHID", "-1001926512163"))
     SUDO = list(map(int, getenv("SUDO", "1746132193 1353275714").split()))
     MONGO_URI = getenv("MONGO_URI", "mongodb+srv://rangnarl47:reqbotzyro@cluster0.zt0ld.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-    
+    PORT = int(getenv("PORT", "8000"))
+
 cfg = Config()
 
 # Don't Remove Credit @VJ_Botz
