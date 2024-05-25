@@ -17,37 +17,22 @@ app = Client(
     bot_token=cfg.BOT_TOKEN
 )
 
-gif = [
-    'https://te.legra.ph/file/a1b3d4a7b5fce249902f7.mp4',
-    'https://te.legra.ph/file/0c855143a4039108df602.mp4',
-    'https://te.legra.ph/file/d7f3f18a92e6f7add8fcd.mp4',
-    'https://te.legra.ph/file/9e334112ee3a4000c4164.mp4',
-    'https://te.legra.ph/file/652fc39ae6295272699c6.mp4',
-    'https://te.legra.ph/file/702ca8761c3fd9c1b91e8.mp4',
-    'https://te.legra.ph/file/a1b3d4a7b5fce249902f7.mp4',
-    'https://te.legra.ph/file/d7f3f18a92e6f7add8fcd.mp4',
-    'https://te.legra.ph/file/0c855143a4039108df602.mp4',
-    'https://te.legra.ph/file/9e334112ee3a4000c4164.mp4',
-    'https://te.legra.ph/file/702ca8761c3fd9c1b91e8.mp4'
-]
+sticker_id = "AAMCBQADGQEAAQKCc2ZRgo0jGj7SdJQDcA-UMuT4Wr4-AAJuAQACJ-UBVbe1ma8aNEoVAQAHbQADNQQ"
 
-
-#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main process ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
+# Main process
 @app.on_chat_join_request(filters.group | filters.channel & ~filters.private)
-async def approve(_, m : Message):
+async def approve(_, m: Message):
     op = m.chat
     kk = m.from_user
     try:
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
-        img = random.choice(gif)
-        await app.send_video(kk.id,img, "**Hello {}!\nWelcome To {}\n\n__Powerd By : @VJ_Botz __**".format(m.from_user.mention, m.chat.title))
+        await app.send_sticker(kk.id, sticker_id, "**Hello {}!\nWelcome To {}\n\n__Powered By : @VJ_Botz __**".format(m.from_user.mention, m.chat.title))
         add_user(kk.id)
-    except errors.PeerIdInvalid as e:
+    except errors.PeerIdInvalid:
         print("user isn't start bot(means group)")
     except Exception as err:
-        print(str(err))    
+        print(str(err))
  
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Start ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
